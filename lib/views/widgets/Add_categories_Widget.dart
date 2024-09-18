@@ -62,7 +62,7 @@ class _AddCategoriesWidgetState extends State<AddCategoriesWidget> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Color(0xFF7BB8B1)),
+                    borderSide: const BorderSide(color: Color(0xFF7BB8B1)),
                   ),
                   labelText: "Category Name",
                   hintText: "Enter category name",
@@ -71,7 +71,7 @@ class _AddCategoriesWidgetState extends State<AddCategoriesWidget> {
                       const Icon(Icons.category, color: Color(0xFF7BB8B1)),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Color(0xFF7BB8B1)),
+                    borderSide: const BorderSide(color: Color(0xFF7BB8B1)),
                   ),
                 ),
               ),
@@ -81,8 +81,8 @@ class _AddCategoriesWidgetState extends State<AddCategoriesWidget> {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundColor:
-                          Color(0xFFF7F7F0), // Light beige for consistency
+                      backgroundColor: const Color(
+                          0xFFF7F7F0), // Light beige for consistency
                       backgroundImage: selectedImageBytes != null
                           ? MemoryImage(selectedImageBytes!)
                           : null,
@@ -207,7 +207,7 @@ class _AddCategoriesWidgetState extends State<AddCategoriesWidget> {
                                   ],
                                 );
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.image,
                                 size: 40,
                                 color: Colors.blueGrey,
@@ -374,7 +374,7 @@ class _AddCategoriesWidgetState extends State<AddCategoriesWidget> {
                       ),
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 12),
-                        backgroundColor: Color(0xFF7BB8B1),
+                        backgroundColor: const Color(0xFF7BB8B1),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),

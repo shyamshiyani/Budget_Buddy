@@ -29,9 +29,9 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 300),
-          child: const Text(
+        title: const AnimatedSwitcher(
+          duration: Duration(milliseconds: 300),
+          child: Text(
             "Budget Tracker App",
             style: TextStyle(
               color: Colors.white,
@@ -41,17 +41,6 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ),
         backgroundColor: const Color(0xFF7BB8B1),
-        // actions: [
-        //   IconButton(
-        //     icon: Obx(() => Icon(
-        //           themeController.isDarkMode.value
-        //               ? Icons.dark_mode
-        //               : Icons.light_mode,
-        //         )),
-        //     onPressed: themeController.toggleTheme,
-        //     tooltip: 'Toggle Dark Mode',
-        //   ),
-        // ],
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: const Color(0xFFF7F7F0),

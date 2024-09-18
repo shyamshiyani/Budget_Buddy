@@ -20,16 +20,6 @@ class _CategoryComponentState extends State<CategoryComponent> {
   Uint8List? selectedImageBytes;
   int section = 0;
 
-  Future<void> _pickImage() async {
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      final Uint8List bytes = await pickedFile.readAsBytes();
-      setState(() {
-        selectedImageBytes = bytes;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -103,7 +93,7 @@ class _CategoryComponentState extends State<CategoryComponent> {
             padding: const EdgeInsets.all(8.0),
             child: IndexedStack(
               index: section,
-              children: [
+              children: const [
                 AddCategoriesWidget(),
                 ShowCategoriesWidget(),
               ],

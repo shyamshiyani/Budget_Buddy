@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({super.key});
+
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -61,10 +62,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                   await saveData.setBool('StartedScrrenVistited', true);
 
-                  Navigator.pushNamed(context, '/');
+                  await Navigator.of(context).pushNamed('/');
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(
+                  backgroundColor: const Color(
                       0xFF7BB8B1), // Match button color with progress indicator
                 ),
                 child: const Text("Get Started"),

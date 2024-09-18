@@ -1,8 +1,7 @@
-import 'package:budget_buddy/controllers/intro_controller.dart';
-import 'package:budget_buddy/controllers/theme_controller.dart'; // Import ThemeController
-import 'package:budget_buddy/views/screens/Home_screen.dart';
-import 'package:budget_buddy/views/screens/Splash_screen.dart';
-import 'package:budget_buddy/views/screens/Welcome_Screen.dart';
+import 'package:budget_buddy/controllers/theme_controller.dart';
+import 'package:budget_buddy/views/screens/home_screen.dart';
+import 'package:budget_buddy/views/screens/splash_screen.dart';
+import 'package:budget_buddy/views/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,10 +30,10 @@ void main() async {
       themeMode: themeController.themeMode,
       initialRoute: isVisted ? '/SplashScreen' : '/WelcomeScreen',
       getPages: [
-        GetPage(name: '/', page: () => HomeScreen()),
+        GetPage(name: '/', page: () => const HomeScreen()),
         GetPage(name: '/SplashScreen', page: () => const SplashScreen()),
-        GetPage(name: '/WelcomeScreen', page: () => WelcomeScreen()),
-        GetPage(name: '/HomeScreen', page: () => HomeScreen()),
+        GetPage(name: '/WelcomeScreen', page: () => const WelcomeScreen()),
+        GetPage(name: '/HomeScreen', page: () => const HomeScreen()),
       ],
     ),
   );

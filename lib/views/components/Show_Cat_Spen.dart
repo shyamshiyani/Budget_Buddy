@@ -135,7 +135,8 @@ class _ShowSpendingComponentState extends State<ShowSpendingComponent> {
                                                 fontWeight: FontWeight.bold),
                                             textAlign: TextAlign.center,
                                           ),
-                                          backgroundColor: Color(0xFF7BB8B1),
+                                          backgroundColor:
+                                              const Color(0xFF7BB8B1),
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 12, vertical: 6),
                                         );

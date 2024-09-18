@@ -85,7 +85,7 @@ class _ShowCategoriesWidgetState extends State<ShowCategoriesWidget> {
             'Error',
             'Failed to update category',
             snackPosition: SnackPosition.BOTTOM,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             backgroundColor: Colors.red,
             colorText: Colors.white,
           );
@@ -112,7 +112,7 @@ class _ShowCategoriesWidgetState extends State<ShowCategoriesWidget> {
             'Success',
             'Category deleted successfully',
             snackPosition: SnackPosition.BOTTOM,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             backgroundColor: Colors.green,
             colorText: Colors.white,
           );
@@ -121,7 +121,7 @@ class _ShowCategoriesWidgetState extends State<ShowCategoriesWidget> {
             'Error',
             'Failed to delete category',
             snackPosition: SnackPosition.BOTTOM,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             backgroundColor: Colors.red,
             colorText: Colors.white,
           );
@@ -148,7 +148,7 @@ class _ShowCategoriesWidgetState extends State<ShowCategoriesWidget> {
             'Success',
             'All categories deleted successfully',
             snackPosition: SnackPosition.BOTTOM,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             backgroundColor: Colors.green,
             colorText: Colors.white,
           );
@@ -157,7 +157,7 @@ class _ShowCategoriesWidgetState extends State<ShowCategoriesWidget> {
             'Error',
             'Failed to delete all categories',
             snackPosition: SnackPosition.BOTTOM,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             backgroundColor: Colors.red,
             colorText: Colors.white,
           );
