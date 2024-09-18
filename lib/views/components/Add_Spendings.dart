@@ -19,6 +19,8 @@ class _SpendingComponentState extends State<SpendingComponent> {
   int? initialIndex;
   double? amount;
 
+  final Color primaryColor = const Color(0xFF7BB8B1);
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<CategoryModelClass>>(
@@ -44,10 +46,12 @@ class _SpendingComponentState extends State<SpendingComponent> {
                         decimal: true,
                         signed: true,
                       ),
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Amount",
                         labelText: "Amount",
+                        hintStyle: TextStyle(color: primaryColor),
+                        labelStyle: TextStyle(color: primaryColor),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -61,14 +65,16 @@ class _SpendingComponentState extends State<SpendingComponent> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
+                  Text(
                     "Choose Expense/Income",
                     style: TextStyle(
                       fontSize: 16.0,
                       fontWeight: FontWeight.bold,
+                      color: primaryColor,
                     ),
                   ),
                   RadioListTile<String>(
+                    activeColor: primaryColor,
                     value: "Expense",
                     groupValue: selectedType,
                     onChanged: (val) {
@@ -79,6 +85,7 @@ class _SpendingComponentState extends State<SpendingComponent> {
                     title: const Text("Expense"),
                   ),
                   RadioListTile(
+                    activeColor: primaryColor,
                     value: "Income",
                     groupValue: selectedType,
                     onChanged: (val) {
@@ -89,11 +96,12 @@ class _SpendingComponentState extends State<SpendingComponent> {
                     title: const Text("Income"),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
+                  Text(
                     "Categories",
                     style: TextStyle(
                       fontSize: 16.0,
                       fontWeight: FontWeight.bold,
+                      color: primaryColor,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -142,7 +150,7 @@ class _SpendingComponentState extends State<SpendingComponent> {
                                       color: Colors.grey[100],
                                       border: (initialIndex == index)
                                           ? Border.all(
-                                              color: Colors.black, width: 2.0)
+                                              color: primaryColor, width: 2.0)
                                           : null),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -166,10 +174,10 @@ class _SpendingComponentState extends State<SpendingComponent> {
                                       const SizedBox(height: 8.0),
                                       Text(
                                         category.name,
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w600,
-                                          color: Colors.black87,
+                                          color: primaryColor,
                                         ),
                                         textAlign: TextAlign.center,
                                       ),
@@ -205,6 +213,7 @@ class _SpendingComponentState extends State<SpendingComponent> {
                                     'Success',
                                     'Spending record added successfully.',
                                     snackPosition: SnackPosition.BOTTOM,
+                                    backgroundColor: primaryColor,
                                   );
                                 });
                               }).catchError((error) {
@@ -212,6 +221,7 @@ class _SpendingComponentState extends State<SpendingComponent> {
                                   'Error',
                                   'Failed to add spending record.',
                                   snackPosition: SnackPosition.BOTTOM,
+                                  backgroundColor: primaryColor,
                                 );
                               });
                             } else {
@@ -219,12 +229,23 @@ class _SpendingComponentState extends State<SpendingComponent> {
                                 'Error',
                                 'Invalid amount value.',
                                 snackPosition: SnackPosition.BOTTOM,
+                                backgroundColor: primaryColor,
                               );
                             }
                           }
                         },
-                        label: const Text("Add Amount"),
-                        icon: const Icon(Icons.add),
+                        label: Text(
+                          "Add Amount",
+                          style: TextStyle(
+                              color: primaryColor, fontWeight: FontWeight.bold),
+                        ),
+                        icon: Icon(
+                          Icons.add,
+                          color: primaryColor,
+                        ),
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: primaryColor),
+                        ),
                       ),
                       OutlinedButton.icon(
                         onPressed: () {
@@ -235,8 +256,17 @@ class _SpendingComponentState extends State<SpendingComponent> {
                             amount = null;
                           });
                         },
-                        label: const Text("Reset"),
-                        icon: const Icon(Icons.refresh),
+                        label: Text("Reset",
+                            style: TextStyle(
+                                color: primaryColor,
+                                fontWeight: FontWeight.bold)),
+                        icon: Icon(
+                          Icons.refresh,
+                          color: primaryColor,
+                        ),
+                        style: OutlinedButton.styleFrom(
+                          side: BorderSide(color: primaryColor),
+                        ),
                       )
                     ],
                   )

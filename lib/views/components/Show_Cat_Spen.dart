@@ -73,32 +73,36 @@ class _ShowSpendingComponentState extends State<ShowSpendingComponent> {
                             child: ListTile(
                               leading: CircleAvatar(
                                 child: FutureBuilder(
-                                    future: ApiHelperClass.apiHelperClass
-                                        .findCategory(
-                                            id: data[index].spending_category! +
-                                                1),
-                                    builder: (context, ss) {
-                                      if (ss.hasError) {
-                                        return const CircleAvatar(
-                                          radius: 35,
-                                          child: Icon(Icons.error_outline),
-                                        );
-                                      } else if (ss.hasData) {
-                                        CategoryModelClass? img = ss.data;
-
-                                        return CircleAvatar(
-                                          radius: 35,
-                                          backgroundImage: (img!.image == null)
-                                              ? null
-                                              : MemoryImage(img.image!),
-                                        );
-                                      }
+                                  future: ApiHelperClass.apiHelperClass
+                                      .findCategory(
+                                    id: data[index].spending_category! + 1,
+                                  ),
+                                  builder: (context, ss) {
+                                    if (ss.hasError) {
                                       return const CircleAvatar(
                                         radius: 35,
+                                        child: Icon(Icons.error_outline),
                                       );
-                                    }),
+                                    } else if (ss.hasData) {
+                                      CategoryModelClass? img = ss.data;
+                                      return CircleAvatar(
+                                        radius: 35,
+                                        backgroundImage: (img!.image == null)
+                                            ? null
+                                            : MemoryImage(img.image!),
+                                      );
+                                    }
+                                    return const CircleAvatar(
+                                      radius: 35,
+                                    );
+                                  },
+                                ),
                               ),
-                              title: Text("\$${data[index].spending_amount}"),
+                              title: Text(
+                                "\$${data[index].spending_amount}",
+                                style: TextStyle(
+                                    color: itemColor), // Apply itemColor here
+                              ),
                               subtitle: Text(data[index].spending_type!),
                               trailing: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -106,8 +110,8 @@ class _ShowSpendingComponentState extends State<ShowSpendingComponent> {
                                   FutureBuilder<CategoryModelClass?>(
                                     future: ApiHelperClass.apiHelperClass
                                         .findCategory(
-                                            id: data[index].spending_category! +
-                                                1),
+                                      id: data[index].spending_category! + 1,
+                                    ),
                                     builder: (context, snapshot) {
                                       if (snapshot.hasError) {
                                         return const Chip(
@@ -235,8 +239,8 @@ class _ShowSpendingComponentState extends State<ShowSpendingComponent> {
                                                   await ApiHelperClass
                                                       .apiHelperClass
                                                       .updateSpending(
-                                                          spending:
-                                                              updatedSpending);
+                                                    spending: updatedSpending,
+                                                  );
 
                                                   setState(() {
                                                     data[index] =
